@@ -18,10 +18,9 @@ func TestMergeTwoLists(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		want := tt.want
 		got := mergeTwoLists(tt.list1, tt.list2)
-		if !cmp.Equal(want, got) {
-			t.Errorf("want %v, got %v, diff %v", want, got, cmp.Diff(want, got))
+		if !cmp.Equal(tt.want, got) {
+			t.Errorf("want %v, got %v, diff %v", tt.want, got, cmp.Diff(tt.want, got))
 		}
 	}
 }

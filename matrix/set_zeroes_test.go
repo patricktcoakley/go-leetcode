@@ -16,12 +16,11 @@ func TestSetZeroes(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		want := tt.want
 		got := tt.matrix
 		setZeroes(got)
 
-		if !cmp.Equal(want, got) {
-			t.Errorf("want %v, got %v, diff %v", want, got, cmp.Diff(want, got))
+		if !cmp.Equal(tt.want, got) {
+			t.Errorf("want %v, got %v, diff %v", tt.want, got, cmp.Diff(tt.want, got))
 		}
 	}
 }

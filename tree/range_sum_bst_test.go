@@ -16,10 +16,9 @@ func TestRangeSumBST(t *testing.T) {
 	}{}
 
 	for _, tt := range tests {
-		want := tt.want
 		got := rangeSumBST(tt.root, tt.low, tt.high)
-		if !cmp.Equal(want, got) {
-			t.Errorf("want %v, got %v, diff %s", want, got, cmp.Diff(want, got))
+		if !cmp.Equal(tt.want, got) {
+			t.Errorf("want %v, got %v, diff %s", tt.want, got, cmp.Diff(tt.want, got))
 		}
 	}
 

@@ -17,10 +17,9 @@ func TestMaxSubArray(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		want := tt.want
 		got := maxSubArray(tt.nums)
-		if !cmp.Equal(want, got) {
-			t.Errorf("want %d, got %d, diff %s", want, got, cmp.Diff(want, got))
+		if !cmp.Equal(tt.want, got) {
+			t.Errorf("want %d, got %d, diff %s", tt.want, got, cmp.Diff(tt.want, got))
 		}
 	}
 }

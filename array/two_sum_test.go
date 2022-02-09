@@ -19,10 +19,9 @@ func TestTwoSum(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		want := tt.want
 		got := twoSum(tt.nums, tt.target)
-		if !cmp.Equal(want, got, cmpopts.SortSlices(func(x, y int) bool { return x < y })) {
-			t.Errorf("want %d, got %d, diff %s", want, got, cmp.Diff(want, got))
+		if !cmp.Equal(tt.want, got, cmpopts.SortSlices(func(x, y int) bool { return x < y })) {
+			t.Errorf("want %d, got %d, diff %s", tt.want, got, cmp.Diff(tt.want, got))
 		}
 	}
 }

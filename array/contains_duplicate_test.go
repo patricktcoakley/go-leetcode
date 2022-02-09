@@ -17,10 +17,9 @@ func TestContainsDuplicate(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		want := tt.want
 		got := containsDuplicate(tt.nums)
-		if !cmp.Equal(want, got) {
-			t.Errorf("want %t, got %t, diff %s", want, got, cmp.Diff(want, got))
+		if !cmp.Equal(tt.want, got) {
+			t.Errorf("want %t, got %t, diff %s", tt.want, got, cmp.Diff(tt.want, got))
 		}
 	}
 }

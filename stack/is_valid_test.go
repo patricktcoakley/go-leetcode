@@ -1,4 +1,4 @@
-package tree
+package stack
 
 import (
 	"testing"
@@ -6,18 +6,20 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-func TestMaxDepth(t *testing.T) {
+func TestIsValid(t *testing.T) {
 	tests := []struct {
-		root *TreeNode
-		want int
-		// TODO: Add tests
-	}{}
+		s    string
+		want bool
+	}{
+		{s: "()", want: true},
+		{s: "()[]{}", want: true},
+		{s: "(}", want: false},
+	}
 
 	for _, tt := range tests {
-		got := maxDepth(tt.root)
+		got := isValid(tt.s)
 		if !cmp.Equal(tt.want, got) {
 			t.Errorf("want %v, got %v, diff %s", tt.want, got, cmp.Diff(tt.want, got))
 		}
 	}
-
 }

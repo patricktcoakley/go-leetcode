@@ -1,4 +1,4 @@
-package array
+package binarysearch
 
 import (
 	"testing"
@@ -6,17 +6,17 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-func TestMaxProfit(t *testing.T) {
+func TestSearch(t *testing.T) {
 	tests := []struct {
-		prices []int
+		nums   []int
+		target int
 		want   int
 	}{
-		{prices: []int{7, 1, 5, 3, 6, 4}, want: 5},
-		{prices: []int{7, 6, 4, 3, 1}, want: 0},
+		{nums: []int{-1, 0, 3, 5, 9, 12}, target: 9, want: 4},
+		{nums: []int{-1, 0, 3, 5, 9, 12}, target: 2, want: -1},
 	}
-
 	for _, tt := range tests {
-		got := maxProfit(tt.prices)
+		got := search(tt.nums, tt.target)
 		if !cmp.Equal(tt.want, got) {
 			t.Errorf("want %d, got %d, diff %s", tt.want, got, cmp.Diff(tt.want, got))
 		}
