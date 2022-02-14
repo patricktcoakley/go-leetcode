@@ -5,7 +5,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func CreateList(arr []int) *ListNode {
+func createList(arr []int) *ListNode {
 	if len(arr) == 0 {
 		return nil
 	}

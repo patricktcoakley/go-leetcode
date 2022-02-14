@@ -8,7 +8,7 @@ import (
 )
 
 func TestCreateList(t *testing.T) {
-	got := CreateList([]int{1, 2, 3})
+	got := createList([]int{1, 2, 3})
 	want := &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3}}}
 
 	if !cmp.Equal(want, got, cmpopts.SortSlices(func(x, y int) bool { return x < y })) {

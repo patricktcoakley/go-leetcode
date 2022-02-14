@@ -11,7 +11,7 @@ func TestReverseList(t *testing.T) {
 		list *ListNode
 		want *ListNode
 	}{
-		{list: CreateList([]int{1, 2, 3, 4, 5}), want: CreateList([]int{5, 4, 3, 2, 1})},
+		{list: createList([]int{1, 2, 3, 4, 5}), want: createList([]int{5, 4, 3, 2, 1})},
 		{list: &ListNode{}, want: &ListNode{}},
 	}
 

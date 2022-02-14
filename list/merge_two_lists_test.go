@@ -12,7 +12,7 @@ func TestMergeTwoLists(t *testing.T) {
 		list2 *ListNode
 		want  *ListNode
 	}{
-		{list1: CreateList([]int{1, 2, 4}), list2: CreateList([]int{1, 3, 4}), want: CreateList([]int{1, 1, 2, 3, 4, 4})},
+		{list1: createList([]int{1, 2, 4}), list2: createList([]int{1, 3, 4}), want: createList([]int{1, 1, 2, 3, 4, 4})},
 		{list1: nil, list2: nil, want: nil},
 		{list1: nil, list2: &ListNode{}, want: &ListNode{}},
 	}
