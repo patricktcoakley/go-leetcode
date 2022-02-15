@@ -7,9 +7,6 @@ import (
 )
 
 func TestLengthOfLongestSubstring(t *testing.T) {
-	type args struct {
-		s string
-	}
 	tests := []struct {
 		s    string
 		want int
