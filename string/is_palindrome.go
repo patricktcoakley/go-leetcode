@@ -6,7 +6,6 @@ func isPalindrome(s string) bool {
 	start, end := 0, len(s)-1
 
 	for start < end {
-
 		sr, er := rune(s[start]), rune(s[end])
 
 		for start < end && !(unicode.IsLetter(sr) || unicode.IsDigit(sr)) {
