@@ -1,4 +1,4 @@
-package dp
+package array
 
 import (
 	"testing"
@@ -6,18 +6,17 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-func TestTribonacci(t *testing.T) {
+func TestRemoveDuplicates(t *testing.T) {
 	tests := []struct {
-		n    int
+		nums []int
 		want int
 	}{
-		{n: 1, want: 1},
-		{n: 4, want: 4},
-		{n: 25, want: 1389537},
+		{nums: []int{1, 1, 2}, want: 2},
+		{nums: []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}, want: 5},
 	}
 
 	for _, tt := range tests {
-		got := tribonacci(tt.n)
+		got := removeDuplicates(tt.nums)
 		if !cmp.Equal(tt.want, got) {
 			t.Errorf("want %d, got %d, diff %s", tt.want, got, cmp.Diff(tt.want, got))
 		}
