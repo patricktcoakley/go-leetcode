@@ -26,7 +26,7 @@ func letterCombinations(digits string) []string {
 		}
 
 		letters := m[digits[i]]
-		for c, _ := range letters {
+		for c := range letters {
 			curr += string(letters[c])
 			backtrack(i+1, curr)
 			curr = curr[:len(curr)-1]
