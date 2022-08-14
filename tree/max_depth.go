@@ -17,5 +17,4 @@ func maxDepthTail(root *TreeNode, depth int) int {
 	}
 
 	return right
-
 }

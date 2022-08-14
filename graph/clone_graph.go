@@ -1,27 +1,26 @@
 package graph
 
 func cloneGraph(node *Node) *Node {
-	var m = make(map[*Node]*Node)
-	return helper(node, m)
-}
-
-func helper(node *Node, m map[*Node]*Node) *Node {
 	if node == nil {
 		return nil
 	}
+	m := make(map[*Node]*Node)
+	m[node] = &Node{Val: node.Val, Neighbors: []*Node{}}
+	q := []*Node{node}
 
-	if n, ok := m[node]; ok {
-		return n
+	for len(q) > 0 {
+		head := q[0]
+		q = q[1:]
+
+		for _, neighbor := range head.Neighbors {
+			if _, ok := m[neighbor]; !ok {
+				m[neighbor] = &Node{Val: neighbor.Val, Neighbors: []*Node{}}
+				q = append(q, neighbor)
+			}
+
+			m[head].Neighbors = append(m[head].Neighbors, m[neighbor])
+		}
 	}
 
-	clone := &Node{Val: node.Val, Neighbors: nil}
-
-	m[node] = clone
-
-	for _, neighbor := range node.Neighbors {
-		clone.Neighbors = append(clone.Neighbors, helper(neighbor, m))
-	}
-
-	return clone
-
+	return m[node]
 }

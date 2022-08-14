@@ -6,7 +6,7 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-func TestIsAnagram(t *testing.T) {
+func TestNextPermutation(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want []int

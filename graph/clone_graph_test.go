@@ -13,7 +13,7 @@ func TestCloneGraph(t *testing.T) {
 		want *Node
 	}{
 		// TODO: add tests
-		{node: &Node{}, want: &Node{}},
+		{node: nil, want: nil},
 	}
 
 	for _, tt := range tests {
