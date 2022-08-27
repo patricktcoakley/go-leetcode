@@ -1,6 +1,32 @@
 package graph
 
 func cloneGraph(node *Node) *Node {
+	m := make(map[*Node]*Node)
+
+	return helper(node, m)
+}
+
+func helper(node *Node, m map[*Node]*Node) *Node {
+	if node == nil {
+		return nil
+	}
+
+	if n, ok := m[node]; ok {
+		return n
+	}
+
+	clone := &Node{Val: node.Val, Neighbors: nil}
+
+	m[node] = clone
+
+	for _, neighbor := range node.Neighbors {
+		m[clone].Neighbors = append(m[clone].Neighbors, helper(m[neighbor], m))
+	}
+
+	return m[node]
+}
+
+func cloneGraphIterative(node *Node) *Node {
 	if node == nil {
 		return nil
 	}
