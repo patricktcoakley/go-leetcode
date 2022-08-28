@@ -33,20 +33,21 @@ func createTree(vals []*int) *TreeNode {
 
 			q = append(q, top.Left)
 			i += 1
+
+			if i >= n {
+				break
+			}
+
+			if vals[i] != nil {
+				top.Right = &TreeNode{Val: *vals[i]}
+			} else {
+				top.Right = nil
+			}
+
+			q = append(q, top.Right)
+			i += 1
 		}
 
-		if i >= n {
-			break
-		}
-
-		if vals[i] != nil {
-			top.Right = &TreeNode{Val: *vals[i]}
-		} else {
-			top.Right = nil
-		}
-
-		q = append(q, top.Right)
-		i += 1
 	}
 
 	return root
