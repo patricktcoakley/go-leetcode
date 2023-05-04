@@ -7,7 +7,7 @@ func isValid(s string) bool {
 		')': '(',
 	}
 
-	stack := []rune{}
+	var stack []rune
 
 	for _, v := range s {
 		if curr, ok := m[v]; ok {

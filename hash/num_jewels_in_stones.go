@@ -1,7 +1,7 @@
 package hash
 
 func numJewelsInStones(jewels string, stones string) int {
-	m := make(map[rune]bool)
+	m := make(map[rune]bool, 26)
 	total := 0
 
 	for _, c := range jewels {

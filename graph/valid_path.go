@@ -1,6 +1,6 @@
 package graph
 
-func validPath(n int, edges [][]int, source int, destination int) bool {
+func validPath(_ int, edges [][]int, source int, destination int) bool {
 	nodes := make(map[int][]int)
 
 	for _, edge := range edges {

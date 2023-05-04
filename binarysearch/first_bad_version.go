@@ -1,7 +1,7 @@
 package binarysearch
 
 // Can't test at this time
-func isBadVersion(version int) bool {
+func isBadVersion(_ int) bool {
 	return true
 }
 

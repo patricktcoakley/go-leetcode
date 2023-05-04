@@ -2,6 +2,7 @@ package tree
 
 func inorderTraversal(root *TreeNode) []int {
 	vals := []int{}
+
 	var traverse func(*TreeNode)
 	traverse = func(node *TreeNode) {
 		if node == nil {
@@ -19,12 +20,12 @@ func inorderTraversal(root *TreeNode) []int {
 }
 
 func inorderTraversalIterative(root *TreeNode) []int {
-	v := []int{}
+	vals := []int{}
 	if root == nil {
-		return v
+		return vals
 	}
 
-	s := []*TreeNode{}
+	var s []*TreeNode
 	curr := root
 	for curr != nil || len(s) > 0 {
 		for curr != nil {
@@ -33,9 +34,9 @@ func inorderTraversalIterative(root *TreeNode) []int {
 		}
 		curr = s[len(s)-1]
 		s = s[:len(s)-1]
-		v = append(v, curr.Val)
+		vals = append(vals, curr.Val)
 		curr = curr.Right
 	}
 
-	return v
+	return vals
 }

@@ -1,7 +1,7 @@
 package tree
 
 func kthSmallest(root *TreeNode, k int) int {
-	s := []*TreeNode{}
+	var s []*TreeNode
 	for {
 		for root != nil {
 			s = append(s, root)

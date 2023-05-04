@@ -1,9 +1,9 @@
 package backtracking
 
 func permute(nums []int) [][]int {
-
-	perms := [][]int{}
+	var perms [][]int
 	n := len(nums)
+
 	var backtrack func(int)
 	backtrack = func(i int) {
 		if i == n {

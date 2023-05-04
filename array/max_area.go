@@ -2,7 +2,6 @@ package array
 
 func maxArea(height []int) int {
 	maxHeight := 0
-
 	left, right := 0, len(height)-1
 
 	for left < right {
