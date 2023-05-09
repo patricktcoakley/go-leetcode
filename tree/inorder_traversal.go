@@ -1,8 +1,6 @@
 package tree
 
-func inorderTraversal(root *TreeNode) []int {
-	vals := []int{}
-
+func inorderTraversal(root *TreeNode) (vals []int) {
 	var traverse func(*TreeNode)
 	traverse = func(node *TreeNode) {
 		if node == nil {
@@ -19,8 +17,7 @@ func inorderTraversal(root *TreeNode) []int {
 	return vals
 }
 
-func inorderTraversalIterative(root *TreeNode) []int {
-	vals := []int{}
+func inorderTraversalIterative(root *TreeNode) (vals []int) {
 	if root == nil {
 		return vals
 	}

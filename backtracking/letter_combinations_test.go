@@ -12,7 +12,7 @@ func TestLetterCombinations(t *testing.T) {
 		want   []string
 	}{
 		{digits: "23", want: []string{"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"}},
-		{digits: "", want: []string{}},
+		{digits: "", want: nil},
 		{digits: "2", want: []string{"a", "b", "c"}},
 	}
 

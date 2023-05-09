@@ -17,7 +17,7 @@ func TestInorderTraversal(t *testing.T) {
 		},
 		{
 			root: createTree(nil),
-			want: []int{},
+			want: nil,
 		},
 		{
 			root: createTree([]*int{intPtr(1)}),
@@ -44,7 +44,7 @@ func TestInorderTraversalIterative(t *testing.T) {
 		},
 		{
 			root: nil,
-			want: []int{},
+			want: nil,
 		},
 		{
 			root: createTree([]*int{intPtr(1)}),

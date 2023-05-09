@@ -1,6 +1,12 @@
 package backtracking
 
-func letterCombinations(digits string) []string {
+func letterCombinations(digits string) (combinations []string) {
+	n := len(digits)
+
+	if n == 0 {
+		return combinations
+	}
+
 	m := map[byte]string{
 		'2': "abc",
 		'3': "def",
@@ -12,28 +18,22 @@ func letterCombinations(digits string) []string {
 		'9': "wxyz",
 	}
 
-	res := []string{}
-
-	if len(digits) == 0 {
-		return res
-	}
-
-	var backtrack func(int, string)
-	backtrack = func(i int, curr string) {
-		if i == len(digits) {
-			res = append(res, curr)
+	var backtrack func([]byte, int)
+	backtrack = func(curr []byte, i int) {
+		if i == n {
+			combinations = append(combinations, string(curr))
 			return
 		}
 
 		letters := m[digits[i]]
-		for c := range letters {
-			curr += string(letters[c])
-			backtrack(i+1, curr)
+
+		for _, v := range letters {
+			curr = append(curr, byte(v))
+			backtrack(curr, i+1)
 			curr = curr[:len(curr)-1]
 		}
 	}
 
-	backtrack(0, "")
-
-	return res
+	backtrack([]byte{}, 0)
+	return combinations
 }

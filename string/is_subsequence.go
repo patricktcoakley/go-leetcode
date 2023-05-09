@@ -1,25 +1,16 @@
 package string
 
 func isSubsequence(s string, t string) bool {
-	if len(s) > len(t) {
-		return false
-	}
+	sLen, tLen := len(s), len(t)
+	left, right := 0, 0
 
-	if len(s) == 0 {
-		return true
-	}
-
-	sCurr := 0
-	tCurr := 0
-
-	for tCurr < len(t) {
-		if s[sCurr] == t[tCurr] {
-			sCurr += 1
+	for left < sLen && right < tLen {
+		if s[left] == t[right] {
+			left += 1
 		}
-		if sCurr == len(s) {
-			return true
-		}
-		tCurr += 1
+
+		right += 1
 	}
-	return false
+
+	return left == sLen
 }

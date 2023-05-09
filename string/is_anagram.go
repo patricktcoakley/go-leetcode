@@ -1,13 +1,13 @@
 package string
 
 func isAnagram(s string, t string) bool {
-	size := len(s)
-	if size != len(t) {
+	n := len(s)
+	if n != len(t) {
 		return false
 	}
 
-	m := map[byte]int{}
-	for i := 0; i < size; i++ {
+	m := make(map[byte]int, n)
+	for i := 0; i < n; i++ {
 		m[s[i]] += 1
 		m[t[i]] -= 1
 	}
