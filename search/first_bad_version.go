@@ -1,4 +1,4 @@
-package binarysearch
+package search
 
 // Can't test at this time
 func isBadVersion(_ int) bool {

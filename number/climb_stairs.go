@@ -1,4 +1,4 @@
-package dp
+package number
 
 func climbStairs(n int) int {
 	if n < 2 {
