@@ -6,10 +6,8 @@ func lengthOfLongestSubstring(s string) int {
 	start := 0
 
 	for i, v := range s {
-		if _, ok := m[v]; ok {
-			if m[v] > start {
-				start = m[v]
-			}
+		if val, ok := m[v]; ok && val > start {
+			start = m[v]
 		}
 
 		if i-start+1 > longest {
