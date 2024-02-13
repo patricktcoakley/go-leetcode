@@ -1,20 +1,24 @@
 package trie
 
 type node struct {
-	children   [26]*node
+	children   map[rune]*node
 	isTerminal bool
 }
 
+func newNode() *node {
+	return &node{children: make(map[rune]*node)}
+}
+
 func (n *node) contains(r rune) bool {
-	return n.children[r-'a'] != nil
+	return n.children[r] != nil
 }
 
 func (n *node) get(r rune) *node {
-	return n.children[r-'a']
+	return n.children[r]
 }
 
 func (n *node) put(r rune, v *node) {
-	n.children[r-'a'] = v
+	n.children[r] = v
 }
 
 type Trie struct {
@@ -22,7 +26,7 @@ type Trie struct {
 }
 
 func Constructor() Trie {
-	return Trie{head: new(node)}
+	return Trie{head: newNode()}
 }
 
 func (t *Trie) Insert(word string) {
@@ -30,7 +34,7 @@ func (t *Trie) Insert(word string) {
 
 	for _, v := range word {
 		if !curr.contains(v) {
-			curr.put(v, new(node))
+			curr.put(v, newNode())
 		}
 
 		curr = curr.get(v)
